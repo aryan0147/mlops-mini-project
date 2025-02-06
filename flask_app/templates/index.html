@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: none;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .happy {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .sad {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sentiment Analysis</h1>
+    
+    <form action="/predict" method="POST">
+        <label for="text">Write text:</label><br>
+        <textarea name="text" rows="5" cols="40" placeholder="Type your text here..."></textarea><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if result is not none and result != "" %}  <!-- Only display result if prediction was made -->
+        <div class="result {% if result == 1 %}happy{% else %}sad{% endif %}">
+            {% if result == 1 %}
+                😊 Happy
+            {% else %}
+                😢 Sad
+            {% endif %}
+        </div>
+    {% endif %}
+
+</body>
+</html>
