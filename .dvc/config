@@ -1,5 +1,6 @@
 [core]
-    remote = myremote
     autostage = true
-['remote "myremote"']
-    url = C:\Users\Aryan\AppData\Local\Temp
+    remote = myremote
+
+[remote "myremote"]
+    url = s3://campusx-mini
