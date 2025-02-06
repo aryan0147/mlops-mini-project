@@ -2,10 +2,10 @@ import numpy as np
 import pandas as pd
 import os
 import re
-import nltk
+import nltk # type: ignore
 import string
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords # type: ignore
+from nltk.stem import WordNetLemmatizer # type: ignore
 
 def lemmatization(text):
     """Lemmatize the text."""
