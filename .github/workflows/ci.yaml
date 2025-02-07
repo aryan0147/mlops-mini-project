@@ -70,7 +70,7 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/mini-project:latest
 
-      # 🆕 Added Step: Trigger Render Deployment
+      # Added Step: Trigger Render Deployment
       - name: Deploy to Render
         if: success()
         run: |
